@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memorize Code - Documentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;900&family=Noto+Sans:wght@400;500;700;900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', 'Noto Sans', sans-serif;
+            background-color: #111618;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            scroll-behavior: smooth;
+        }
+
+        /* Header Styles */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2.5rem;
+            border-bottom: 1px solid #283339;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 2rem;
+            height: 2rem;
+            color: #1193d4;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+        }
+
+        nav {
+            display: flex;
+            gap: 2.25rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #1193d4;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            padding: 2.5rem 5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(17, 22, 24, 0.8), rgba(17, 22, 24, 0.6)),
+                url('https://lh3.googleusercontent.com/aida-public/AB6AXuBC-jq2uqzipQHW2EffyMQPDM0USu379jy1WjwhutgnWhpODPrbFglWItEYv1ajDzZ9_XwESldxHuqN4w6h4LTJYrVxjysdkExtKlNkOKKzkk6gmS3-WWrdW-qpsl2hXIgRKlFcWVIB2cmIMqDaILJ073xAY0yOCc3lBMyl6wShW0-Cl35fgPyotLudJM8VKS_esPiuyJXL-ya4D8L4ei-g0r2N-sKjmL8sIV00uku9aRqxdsIo7kJufHMkddoC2EXJFch5AQFLEK_9');
+            background-size: cover;
+            background-position: center;
+            border-radius: 0.5rem;
+            min-height: 520px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .hero-content {
+            max-width: 768px;
+        }
+
+        .hero h1 {
+            font-size: 3.75rem;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.033em;
+            margin-bottom: 1rem;
+        }
+
+        .hero h2 {
+            font-size: 1.25rem;
+            color: #d1d5db;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .cta-button {
+            background-color: #1193d4;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #0f82b9;
+        }
+
+        /* Documentation Section */
+        .docs-section h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin: 3rem 0 2rem 0;
+            letter-spacing: -0.015em;
+        }
+
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .doc-card {
+            background-color: #1a2226;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .doc-card:hover {
+            box-shadow: 0 10px 25px rgba(17, 147, 212, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .doc-image {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background-size: cover;
+            background-position: center;
+            border-radius: 0.375rem;
+            margin-bottom: 1rem;
+        }
+
+        .doc-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .doc-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .doc-description {
+            color: #9db0b9;
+            font-size: 0.875rem;
+            flex: 1;
+            margin-bottom: 1rem;
+        }
+
+        .doc-link {
+            color: #1193d4;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .doc-link:hover {
+            text-decoration: underline;
+            color: #0f82b9;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+
+        .final-cta h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            max-width: 512px;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: -0.033em;
+        }
+
+        .final-cta .cta-button {
+            font-size: 1.125rem;
+            padding: 1.25rem 2.5rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid #283339;
+            padding: 3rem 1.25rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #9db0b9;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            color: #9db0b9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                gap: 1.5rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.125rem;
+            }
+
+            .docs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .final-cta h1 {
+                font-size: 2rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .docs-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo-section">
+            <svg class="logo-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5-10-5-10 5z"></path>
+            </svg>
+            <h2 class="logo-text">Memorize Code</h2>
+        </div>
+        <nav>
+            <a href="#docs-section2">Documentation</a>
+
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>Master Coding with Interactive Documentation</h1>
+                    <h2>Learn MySQL, Node.js, Python, Java, and JavaScript through comprehensive guides, examples, and
+                        best practices.</h2>
+                    <a href="#docs-section2" style="text-decoration:none;"><button class="cta-button">Explore Documentation</button></a>
+                </div>
+            </section>
+
+            <section id="docs-section2" class="docs-section">
+                <h2>Our Documentation</h2>
+                <div class="docs-grid">
+                    <div class="doc-card">
+                        <div class="doc-image"
+                            style="background-image: url('/mysql.png');">
+                        </div>
+                        <div class="doc-content">
+                            <p class="doc-title">MySQL Documentation</p>
+                            <p class="doc-description">Complete guide to database management with MySQL including
+                                queries, optimization, and best practices.</p>
+                            <a class="doc-link" href="/mysqlDoc.html">View Documentation</a>
+                        </div>
+                    </div>
+
+                    <div class="doc-card">
+                        <div class="doc-image"
+                            style="background-image: url('/nodejs.jpg');">
+                        </div>
+                        <div class="doc-content">
+                            <p class="doc-title">Node.js Documentation</p>
+                            <p class="doc-description">Build scalable server-side applications with comprehensive
+                                Node.js guides and API references.</p>
+                            <a class="doc-link" href="#">View Documentation</a>
+                        </div>
+                    </div>
+
+                    <div class="doc-card">
+                        <div class="doc-image"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA-biFf0AetkUtrL_YuPMde5dEojU9706ba7ftWXk4w7waEQH3vCdJ-UYr46XVL1U0yZIL8gU4si2Hk3f8Mgs2CLvbHlyfM2ERSRqbvCFii5YTd660L_TVhnhC2yoUqsz-VWAMZDbXknr9ffukO_eF1P0d7H87eQYectn-80ZNzK5AEMTMWv-U6Dzhk4belZ1uH79dm2EsiV5JxmWB14c-vY8tMwSc7DI_G5r-0F2p6RZaMLIuLf8Z75NCLU-TvfNyGI4k8J9h-iYIf');">
+                        </div>
+                        <div class="doc-content">
+                            <p class="doc-title">Python Documentation</p>
+                            <p class="doc-description">Dive into Python programming with detailed syntax guides,
+                                libraries, and coding examples.</p>
+                            <a class="doc-link" href="">View Documentation</a>
+                        </div>
+                    </div>
+
+                    <div class="doc-card">
+                        <div class="doc-image"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB2ZVWtRf9M7nLupIlC-yBM4Or8XwsfGQObqNAZ5pm14KYKGaDSDFb-mUgxzetcewqZapE06Vuj_tiKTdFyias7CC46KLzsOL4x3kvrEZE-xm3t-cJUw9zsSSDh0iMzMbx1Ct93Wne_mklUh7cMxcSRRLtPfg9NOgQ2RNtFZuN_sRLTtMFNzIMr_9YAX-yQb9DOfu9s2uPg005f4jJyyXZDyRLWVqG_qe-GyzrOzAYOihXZFu3ksb8MkIlUtpuXveBCCB1dAXOtbEQe');">
+                        </div>
+                        <div class="doc-content">
+                            <p class="doc-title">Java Documentation</p>
+                            <p class="doc-description">Master Java programming with comprehensive guides covering core
+                                concepts and advanced topics.</p>
+                            <a class="doc-link" href="#">View Documentation</a>
+                        </div>
+                    </div>
+
+                    <div class="doc-card">
+                        <div class="doc-image"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB3LSJUsWxadMMrTD6FEeOU6ry-EkkpfwDh4QpI4ASMcs8Nw0EU21uht8jVEjQADjDqiwfzN2j3lHICROd2tOsHuimD6AFWiShlHatSdv4rJuz4om6oSLkpqa-kFkTWvCxBI98_xlQXPyVMNYRys0rvgZJvrNUAihiDeesThiQJTJPW9TV4ImhLUCbZR7LUTdkEkxEKbsQfP4CU1N4_Mh0RKZYSvW54I7eE0_EUvX_I_NJhJbQuxmPA_DJqYkzcDNSgSuXJ4fs-brpe');">
+                        </div>
+                        <div class="doc-content">
+                            <p class="doc-title">JavaScript Documentation</p>
+                            <p class="doc-description">Become a JavaScript expert with our comprehensive documentation
+                                and practical examples.</p>
+                            <a class="doc-link" href="#">View Documentation</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+
+</body>
+
+</html>
